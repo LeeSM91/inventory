@@ -31,6 +31,7 @@ namespace inventory
             dbAdapt.Fill(dt);
             dataGridView1.DataSource = dt;
             db.Close();
+
         }
     }
 }

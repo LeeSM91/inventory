@@ -160,19 +160,19 @@ namespace inventory
             db.Open();
 
             string dbQuery = "SELECT * FROM `inventory`.`inventoryTB` " +
-                              $"WHERE name LIKE '%{name}%' "+
+                              $"WHERE name  LIKE '%{name}%' "+
                               "AND "+
-                              $"madein LIKE '%{madein}%' "+
+                              $"madein      LIKE '%{madein}%' "+
                               "AND "+
-                              $"makeyear LIKE '%{makeyear}%' "+
+                              $"makeyear    LIKE '%{makeyear}%' "+
                               "AND "+
-                              $"leafmade LIKE '%{leaf}%'; ";
-            MySqlCommand cmd = new MySqlCommand(dbQuery, db);
-            MySqlDataAdapter dbAdapt = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+                              $"leafmade    LIKE '%{leaf}%'; ";
+            MySqlCommand cmd            = new MySqlCommand(dbQuery, db);
+            MySqlDataAdapter dbAdapt    = new MySqlDataAdapter(cmd);
+            DataTable dt                = new DataTable();
             dbAdapt.Fill(dt);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource    = null;
+            dataGridView1.DataSource    = dt;
             db.Close();
         }
 

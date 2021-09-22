@@ -62,6 +62,7 @@ namespace inventory
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -595,6 +596,15 @@ namespace inventory
             this.metroButton4.Text = "첨부";
             this.metroButton4.UseSelectable = true;
             // 
+            // metroButton5
+            // 
+            this.metroButton5.Location = new System.Drawing.Point(915, 82);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(84, 31);
+            this.metroButton5.TabIndex = 3;
+            this.metroButton5.Text = "삭제";
+            this.metroButton5.UseSelectable = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -604,6 +614,7 @@ namespace inventory
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.metroButton3);
+            this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTextBox4);
@@ -616,6 +627,7 @@ namespace inventory
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -663,6 +675,7 @@ namespace inventory
         private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.GroupBox groupBox3;
         private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton metroButton5;
     }
 }
 

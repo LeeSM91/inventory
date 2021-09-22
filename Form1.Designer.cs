@@ -31,14 +31,14 @@ namespace inventory
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.searchName = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.searchMadein = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
+            this.searchMadeyear = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.searchLeaf = new MetroFramework.Controls.MetroTextBox();
+            this.searchButton = new MetroFramework.Controls.MetroButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.productName = new MetroFramework.Controls.MetroTextBox();
@@ -62,7 +62,7 @@ namespace inventory
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
-            this.metroButton5 = new MetroFramework.Controls.MetroButton();
+            this.deleteButton = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,6 +83,7 @@ namespace inventory
             this.dataGridView1.Size = new System.Drawing.Size(751, 565);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // metroLabel1
             // 
@@ -93,35 +94,35 @@ namespace inventory
             this.metroLabel1.TabIndex = 1;
             this.metroLabel1.Text = "제품명";
             // 
-            // metroTextBox1
+            // searchName
             // 
             // 
             // 
             // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(77, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(81, 82);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(99, 23);
-            this.metroTextBox1.TabIndex = 2;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.searchName.CustomButton.Image = null;
+            this.searchName.CustomButton.Location = new System.Drawing.Point(77, 1);
+            this.searchName.CustomButton.Name = "";
+            this.searchName.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.searchName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.searchName.CustomButton.TabIndex = 1;
+            this.searchName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.searchName.CustomButton.UseSelectable = true;
+            this.searchName.CustomButton.Visible = false;
+            this.searchName.Lines = new string[0];
+            this.searchName.Location = new System.Drawing.Point(81, 82);
+            this.searchName.MaxLength = 32767;
+            this.searchName.Name = "searchName";
+            this.searchName.PasswordChar = '\0';
+            this.searchName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.searchName.SelectedText = "";
+            this.searchName.SelectionLength = 0;
+            this.searchName.SelectionStart = 0;
+            this.searchName.ShortcutsEnabled = true;
+            this.searchName.Size = new System.Drawing.Size(99, 23);
+            this.searchName.TabIndex = 2;
+            this.searchName.UseSelectable = true;
+            this.searchName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.searchName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel2
             // 
@@ -132,35 +133,35 @@ namespace inventory
             this.metroLabel2.TabIndex = 1;
             this.metroLabel2.Text = "차창";
             // 
-            // metroTextBox2
+            // searchMadein
             // 
             // 
             // 
             // 
-            this.metroTextBox2.CustomButton.Image = null;
-            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(77, 1);
-            this.metroTextBox2.CustomButton.Name = "";
-            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox2.CustomButton.TabIndex = 1;
-            this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox2.CustomButton.UseSelectable = true;
-            this.metroTextBox2.CustomButton.Visible = false;
-            this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(229, 82);
-            this.metroTextBox2.MaxLength = 32767;
-            this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.PasswordChar = '\0';
-            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox2.SelectedText = "";
-            this.metroTextBox2.SelectionLength = 0;
-            this.metroTextBox2.SelectionStart = 0;
-            this.metroTextBox2.ShortcutsEnabled = true;
-            this.metroTextBox2.Size = new System.Drawing.Size(99, 23);
-            this.metroTextBox2.TabIndex = 2;
-            this.metroTextBox2.UseSelectable = true;
-            this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.searchMadein.CustomButton.Image = null;
+            this.searchMadein.CustomButton.Location = new System.Drawing.Point(77, 1);
+            this.searchMadein.CustomButton.Name = "";
+            this.searchMadein.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.searchMadein.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.searchMadein.CustomButton.TabIndex = 1;
+            this.searchMadein.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.searchMadein.CustomButton.UseSelectable = true;
+            this.searchMadein.CustomButton.Visible = false;
+            this.searchMadein.Lines = new string[0];
+            this.searchMadein.Location = new System.Drawing.Point(229, 82);
+            this.searchMadein.MaxLength = 32767;
+            this.searchMadein.Name = "searchMadein";
+            this.searchMadein.PasswordChar = '\0';
+            this.searchMadein.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.searchMadein.SelectedText = "";
+            this.searchMadein.SelectionLength = 0;
+            this.searchMadein.SelectionStart = 0;
+            this.searchMadein.ShortcutsEnabled = true;
+            this.searchMadein.Size = new System.Drawing.Size(99, 23);
+            this.searchMadein.TabIndex = 2;
+            this.searchMadein.UseSelectable = true;
+            this.searchMadein.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.searchMadein.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel3
             // 
@@ -171,35 +172,35 @@ namespace inventory
             this.metroLabel3.TabIndex = 1;
             this.metroLabel3.Text = "생산년도";
             // 
-            // metroTextBox3
+            // searchMadeyear
             // 
             // 
             // 
             // 
-            this.metroTextBox3.CustomButton.Image = null;
-            this.metroTextBox3.CustomButton.Location = new System.Drawing.Point(77, 1);
-            this.metroTextBox3.CustomButton.Name = "";
-            this.metroTextBox3.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox3.CustomButton.TabIndex = 1;
-            this.metroTextBox3.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox3.CustomButton.UseSelectable = true;
-            this.metroTextBox3.CustomButton.Visible = false;
-            this.metroTextBox3.Lines = new string[0];
-            this.metroTextBox3.Location = new System.Drawing.Point(405, 82);
-            this.metroTextBox3.MaxLength = 32767;
-            this.metroTextBox3.Name = "metroTextBox3";
-            this.metroTextBox3.PasswordChar = '\0';
-            this.metroTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox3.SelectedText = "";
-            this.metroTextBox3.SelectionLength = 0;
-            this.metroTextBox3.SelectionStart = 0;
-            this.metroTextBox3.ShortcutsEnabled = true;
-            this.metroTextBox3.Size = new System.Drawing.Size(99, 23);
-            this.metroTextBox3.TabIndex = 2;
-            this.metroTextBox3.UseSelectable = true;
-            this.metroTextBox3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.searchMadeyear.CustomButton.Image = null;
+            this.searchMadeyear.CustomButton.Location = new System.Drawing.Point(77, 1);
+            this.searchMadeyear.CustomButton.Name = "";
+            this.searchMadeyear.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.searchMadeyear.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.searchMadeyear.CustomButton.TabIndex = 1;
+            this.searchMadeyear.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.searchMadeyear.CustomButton.UseSelectable = true;
+            this.searchMadeyear.CustomButton.Visible = false;
+            this.searchMadeyear.Lines = new string[0];
+            this.searchMadeyear.Location = new System.Drawing.Point(405, 82);
+            this.searchMadeyear.MaxLength = 32767;
+            this.searchMadeyear.Name = "searchMadeyear";
+            this.searchMadeyear.PasswordChar = '\0';
+            this.searchMadeyear.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.searchMadeyear.SelectedText = "";
+            this.searchMadeyear.SelectionLength = 0;
+            this.searchMadeyear.SelectionStart = 0;
+            this.searchMadeyear.ShortcutsEnabled = true;
+            this.searchMadeyear.Size = new System.Drawing.Size(99, 23);
+            this.searchMadeyear.TabIndex = 2;
+            this.searchMadeyear.UseSelectable = true;
+            this.searchMadeyear.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.searchMadeyear.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel4
             // 
@@ -210,44 +211,45 @@ namespace inventory
             this.metroLabel4.TabIndex = 1;
             this.metroLabel4.Text = "찻잎산지";
             // 
-            // metroTextBox4
+            // searchLeaf
             // 
             // 
             // 
             // 
-            this.metroTextBox4.CustomButton.Image = null;
-            this.metroTextBox4.CustomButton.Location = new System.Drawing.Point(77, 1);
-            this.metroTextBox4.CustomButton.Name = "";
-            this.metroTextBox4.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox4.CustomButton.TabIndex = 1;
-            this.metroTextBox4.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox4.CustomButton.UseSelectable = true;
-            this.metroTextBox4.CustomButton.Visible = false;
-            this.metroTextBox4.Lines = new string[0];
-            this.metroTextBox4.Location = new System.Drawing.Point(581, 82);
-            this.metroTextBox4.MaxLength = 32767;
-            this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.PasswordChar = '\0';
-            this.metroTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox4.SelectedText = "";
-            this.metroTextBox4.SelectionLength = 0;
-            this.metroTextBox4.SelectionStart = 0;
-            this.metroTextBox4.ShortcutsEnabled = true;
-            this.metroTextBox4.Size = new System.Drawing.Size(99, 23);
-            this.metroTextBox4.TabIndex = 2;
-            this.metroTextBox4.UseSelectable = true;
-            this.metroTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.searchLeaf.CustomButton.Image = null;
+            this.searchLeaf.CustomButton.Location = new System.Drawing.Point(77, 1);
+            this.searchLeaf.CustomButton.Name = "";
+            this.searchLeaf.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.searchLeaf.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.searchLeaf.CustomButton.TabIndex = 1;
+            this.searchLeaf.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.searchLeaf.CustomButton.UseSelectable = true;
+            this.searchLeaf.CustomButton.Visible = false;
+            this.searchLeaf.Lines = new string[0];
+            this.searchLeaf.Location = new System.Drawing.Point(581, 82);
+            this.searchLeaf.MaxLength = 32767;
+            this.searchLeaf.Name = "searchLeaf";
+            this.searchLeaf.PasswordChar = '\0';
+            this.searchLeaf.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.searchLeaf.SelectedText = "";
+            this.searchLeaf.SelectionLength = 0;
+            this.searchLeaf.SelectionStart = 0;
+            this.searchLeaf.ShortcutsEnabled = true;
+            this.searchLeaf.Size = new System.Drawing.Size(99, 23);
+            this.searchLeaf.TabIndex = 2;
+            this.searchLeaf.UseSelectable = true;
+            this.searchLeaf.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.searchLeaf.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroButton1
+            // searchButton
             // 
-            this.metroButton1.Location = new System.Drawing.Point(690, 82);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(84, 31);
-            this.metroButton1.TabIndex = 3;
-            this.metroButton1.Text = "검색";
-            this.metroButton1.UseSelectable = true;
+            this.searchButton.Location = new System.Drawing.Point(690, 82);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(84, 31);
+            this.searchButton.TabIndex = 3;
+            this.searchButton.Text = "검색";
+            this.searchButton.UseSelectable = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // pictureBox1
             // 
@@ -596,21 +598,22 @@ namespace inventory
             // 
             // metroButton4
             // 
-            this.metroButton4.Location = new System.Drawing.Point(151, 245);
+            this.metroButton4.Location = new System.Drawing.Point(90, 245);
             this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(84, 18);
+            this.metroButton4.Size = new System.Drawing.Size(145, 18);
             this.metroButton4.TabIndex = 3;
-            this.metroButton4.Text = "첨부";
+            this.metroButton4.Text = "이미지 경로";
             this.metroButton4.UseSelectable = true;
             // 
-            // metroButton5
+            // deleteButton
             // 
-            this.metroButton5.Location = new System.Drawing.Point(915, 82);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(84, 31);
-            this.metroButton5.TabIndex = 3;
-            this.metroButton5.Text = "삭제";
-            this.metroButton5.UseSelectable = true;
+            this.deleteButton.Location = new System.Drawing.Point(915, 82);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(84, 31);
+            this.deleteButton.TabIndex = 3;
+            this.deleteButton.Text = "삭제";
+            this.deleteButton.UseSelectable = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // Form1
             // 
@@ -621,19 +624,20 @@ namespace inventory
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.metroButton3);
-            this.Controls.Add(this.metroButton5);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.newButton);
-            this.Controls.Add(this.metroButton1);
-            this.Controls.Add(this.metroTextBox4);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.searchLeaf);
             this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.metroTextBox3);
+            this.Controls.Add(this.searchMadeyear);
             this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.metroTextBox2);
+            this.Controls.Add(this.searchMadein);
             this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.metroTextBox1);
+            this.Controls.Add(this.searchName);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
+            this.Text = "산중명월 보이차 재고관리 프로그램";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -652,14 +656,14 @@ namespace inventory
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox searchName;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroTextBox searchMadein;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroTextBox metroTextBox3;
+        private MetroFramework.Controls.MetroTextBox searchMadeyear;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroTextBox metroTextBox4;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroTextBox searchLeaf;
+        private MetroFramework.Controls.MetroButton searchButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTextBox productName;
@@ -683,7 +687,7 @@ namespace inventory
         private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.GroupBox groupBox3;
         private MetroFramework.Controls.MetroButton metroButton4;
-        private MetroFramework.Controls.MetroButton metroButton5;
+        private MetroFramework.Controls.MetroButton deleteButton;
     }
 }
 

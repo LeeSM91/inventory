@@ -25,20 +25,24 @@ namespace inventory
 
             db.Open();
 
-            string dbQuery      = "SELECT * FROM inventoryTB;";
-            MySqlCommand cmd    = new MySqlCommand(dbQuery, db);
-            MySqlDataAdapter dbAdapt = new MySqlDataAdapter(cmd);
-            DataTable dt        = new DataTable();
+            string dbQuery              = "SELECT * FROM inventoryTB;";
+            MySqlCommand cmd            = new MySqlCommand(dbQuery, db);
+            MySqlDataAdapter dbAdapt    = new MySqlDataAdapter(cmd);
+            DataTable dt                = new DataTable();
             dbAdapt.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource    = dt;
             db.Close();
+
+        }
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
 
         }
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
             db.Open();
-            string  name        = productName.Text;
+            string name         = productName.Text;
             string  madein      = productMaker.Text;
             string  makeyear    = productMakeYear.Text;
             string  price       = productPrice.Text;
@@ -74,48 +78,104 @@ namespace inventory
         private void metroButton2_Click(object sender, EventArgs e)//신규 생성을 위한 빈 row 이동
         {
             dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.RowCount-1].Cells[0];
-            productName.Text = null;
-            productMaker.Text = null;
-            productMakeYear.Text = null;
-            productPrice.Text = null;
-            productLeaf.Text = null;
-            productEct.Text = null;
-            productSUC.Checked = false;
-            productSANG.Checked = false;
+            productName.Text        = null;
+            productMaker.Text       = null;
+            productMakeYear.Text    = null;
+            productPrice.Text       = null;
+            productLeaf.Text        = null;
+            productEct.Text         = null;
+            productSUC.Checked      = false;
+            productSANG.Checked     = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.CurrentCell.RowIndex == dataGridView1.RowCount - 1)
+            if (e.RowIndex == dataGridView1.RowCount - 1)
             {
-                productName.Text = null;
-                productMaker.Text = null;
-                productMakeYear.Text = null;
-                productPrice.Text = null;
-                productLeaf.Text = null;
-                productEct.Text = null;
-                productSUC.Checked = false;
-                productSANG.Checked = false;
+                productName.Text        = null;
+                productMaker.Text       = null;
+                productMakeYear.Text    = null;
+                productPrice.Text       = null;
+                productLeaf.Text        = null;
+                productEct.Text         = null;
+                productSUC.Checked      = false;
+                productSANG.Checked     = false;
+            }
+            if (e.RowIndex != -1)
+            {
+                productName.Text        = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                productMaker.Text       = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                productMakeYear.Text    = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                productPrice.Text       = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                productLeaf.Text        = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();    
+                productEct.Text         = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+                if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()=="숙차")
+                {
+                    productSUC.Checked = true;
+                }
+                else if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString() == "생차")
+                {
+                    productSANG.Checked = true;
+                }
+
             }
 
-            productName.Text        = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            productMaker.Text       = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            productMakeYear.Text    = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            productPrice.Text       = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            productLeaf.Text        = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();    
-            productEct.Text         = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-            if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()=="숙차")
-            {
-                productSUC.Checked = true;
-            }
-            else if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString() == "생차")
-            {
-                productSANG.Checked = true;
-
-            }
 
 
 
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = dataGridView1.CurrentCell.RowIndex;
+
+            if (dataGridView1.Rows[currentRow].Cells[0].Value!=null)
+            {
+                string deleteCellnum    = dataGridView1.Rows[currentRow].Cells[0].Value.ToString();
+                string dbQuery          = $"DELETE FROM `inventory`.`inventoryTB` WHERE  `num`= {deleteCellnum};"+ 
+                                          "SELECT * FROM inventoryTB;";
+                
+                db.Open();
+                MySqlCommand cmd            = new MySqlCommand(dbQuery, db);
+                MySqlDataAdapter dbAdapt    = new MySqlDataAdapter(cmd);
+                DataTable dt                = new DataTable();
+                dbAdapt.Fill(dt);
+                dataGridView1.DataSource    = null;
+                dataGridView1.DataSource = dt;
+                db.Close();
+
+            }
+
+
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string name     = searchName.Text;
+            string madein   = searchMadein.Text;
+            string makeyear = searchMadeyear.Text;
+            string leaf     = searchLeaf.Text;
+
+            db.Open();
+
+            string dbQuery = "SELECT * FROM `inventory`.`inventoryTB` " +
+                              $"WHERE name LIKE '%{name}%' "+
+                              "AND "+
+                              $"madein LIKE '%{madein}%' "+
+                              "AND "+
+                              $"makeyear LIKE '%{makeyear}%' "+
+                              "AND "+
+                              $"leafmade LIKE '%{leaf}%'; ";
+            MySqlCommand cmd = new MySqlCommand(dbQuery, db);
+            MySqlDataAdapter dbAdapt = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dbAdapt.Fill(dt);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = dt;
+            db.Close();
+        }
+
+
     }
 }

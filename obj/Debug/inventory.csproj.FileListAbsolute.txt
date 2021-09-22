@@ -11,3 +11,14 @@ C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inve
 C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.csproj.CopyComplete
 C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.exe
 C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.pdb
+C:\Users\esm91\Desktop\inventory\bin\Debug\inventory.exe.config
+C:\Users\esm91\Desktop\inventory\bin\Debug\inventory.exe
+C:\Users\esm91\Desktop\inventory\bin\Debug\inventory.pdb
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.csproj.AssemblyReference.cache
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.Form1.resources
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.Properties.Resources.resources
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.csproj.GenerateResource.cache
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.csproj.CoreCompileInputs.cache
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.csproj.CopyComplete
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.exe
+C:\Users\esm91\Desktop\inventory\obj\Debug\inventory.pdb

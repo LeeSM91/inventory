@@ -1,0 +1,13 @@
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\bin\Debug\inventory.exe.config
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\bin\Debug\inventory.exe
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\bin\Debug\inventory.pdb
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\bin\Debug\MetroFramework.Design.dll
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\bin\Debug\MetroFramework.dll
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.csproj.AssemblyReference.cache
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.Properties.Resources.resources
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.csproj.GenerateResource.cache
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.csproj.CoreCompileInputs.cache
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.csproj.CopyComplete
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.exe
+C:\Users\edr\Desktop\프로그래밍공부 C#\inventory\inventory\obj\Debug\inventory.pdb

@@ -14,6 +14,7 @@ namespace inventory
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         MySqlConnection db = new MySqlConnection(@"Server=database-1.chaokiahnhcd.us-east-2.rds.amazonaws.com;Database=inventory;Uid=tea;Pwd=123456789;");
+        bool blankCell = true;
 
         public Form1()
         {
@@ -139,32 +140,40 @@ namespace inventory
             int currentRow = dataGridView1.CurrentCell.RowIndex;        //현재 선택된 grideview 위치 확인
             string num = dataGridView1.Rows[currentRow].Cells[0].Value.ToString();  //선택된 gridview의 num 확인(table의 primery 키 값)
 
-            if (num != null)
+            if (!blankCell)
             {   //선택된 datagridview에 기존 값이 존재할 경우 update로 값 수정
                 dbQuery = $@"UPDATE `inventory`.`inventoryTB` " +
                             $@"SET `name`= '{name}', `madein`='{madein}',`makeyear`='{makeyear}',`price`='{price}', `leafmade`='{leaf}', `fermente` ='{ferment}', `ect`='{ect}',`imgsrc`='{imgsrc.Replace(@"\", @"\\")}',`ware`='{ware}' " +
                             $@"WHERE  `num`= {num}; "+
                             @"SELECT * FROM inventoryTB;";
             }
-            else if (num == null)
+            else if (blankCell)
             {   //선택된 datagridview에 기존 값이 없을 경우 값 삽입(insert)
                 dbQuery =           $@"INSERT INTO `inventory`.`inventoryTB` (`name`, `madein`, `makeyear`, `price`, `leafmade`, `fermente`, `ect`, `imgsrc`, `ware`) " +
                                     $@"VALUES ('{name}', '{madein}', '{makeyear}', '{price}', '{leaf}', '{ferment}', '{ect}', '{imgsrc.Replace(@"\", @"\\")}', {ware}); " +
                                     @"SELECT * FROM inventoryTB;";
             }
 
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(dbQuery, db);
+                MySqlDataAdapter dbAdapt = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                dbAdapt.Fill(dt);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("기입이 완료되지 않은 정보가 있습니다");
+            }
 
-            MySqlCommand cmd            = new MySqlCommand(dbQuery, db);
-            MySqlDataAdapter dbAdapt    = new MySqlDataAdapter(cmd);
-            DataTable dt                = new DataTable(); 
-            dbAdapt.Fill(dt);
-            dataGridView1.DataSource    = null;
-            dataGridView1.DataSource    = dt;
 
             db.Close();
             wareColorChange();
 
             //수행 완료 후 textbox를 비우고 셀 제일 아래칸으로 이동
+            blankCell = true;
             dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0];
             productName.Text        = null;
             productMaker.Text       = null;
@@ -184,6 +193,7 @@ namespace inventory
 
         private void metroButton2_Click(object sender, EventArgs e)//신규 생성을 위한 빈 row 이동
         {   //textbox를 비우고 셀 제일 아래칸으로 이동
+            blankCell = true;
             dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.RowCount-1].Cells[0];
             productName.Text        = null;
             productMaker.Text       = null;
@@ -205,6 +215,8 @@ namespace inventory
         {
             if (e.RowIndex == dataGridView1.RowCount - 1)
             {   //textbox를 비움
+                blankCell = true;
+
                 productName.Text        = null;
                 productMaker.Text       = null;
                 productMakeYear.Text    = null;
@@ -223,6 +235,8 @@ namespace inventory
             }
             if ((e.RowIndex != -1) && (e.RowIndex != dataGridView1.RowCount - 1))
             {   //선택된 셀 값을 textbox와 picturebox에 적용시켜 보여줌
+                blankCell = false;
+
                 productName.Text        = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 productMaker.Text       = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 productMakeYear.Text    = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -232,16 +246,24 @@ namespace inventory
                 imgsrcSave.Text         = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                 wareNumber.Text         = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
                 string imgsrc = @dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                try
+                {
+                    if (imgsrc.Substring(0, 1) != "h")
+                    {
+                        Image img = Image.FromFile(@imgsrc);
+                        pictureBox1.Image = img.GetThumbnailImage(200, 200, null, IntPtr.Zero);
+                    }
+                    else
+                    {
+                        pictureBox1.ImageLocation = imgsrc;//웹이미지용
 
-                if (imgsrc.Substring(0,1)=="h")
-                {
-                    pictureBox1.ImageLocation = imgsrc;//웹이미지용
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    Image img = Image.FromFile(@imgsrc);
-                    pictureBox1.Image = img.GetThumbnailImage(200, 200, null, IntPtr.Zero);
+                    pictureBox1.Image = null;
                 }
+
 
 
 

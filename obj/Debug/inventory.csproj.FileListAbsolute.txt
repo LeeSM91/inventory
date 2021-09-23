@@ -72,7 +72,6 @@ C:\Users\edr\Desktop\inventory project\bin\Debug\System.Buffers.xml
 C:\Users\edr\Desktop\inventory project\bin\Debug\System.Memory.xml
 C:\Users\edr\Desktop\inventory project\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\edr\Desktop\inventory project\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\edr\Desktop\inventory project\obj\Debug\inventory.csproj.AssemblyReference.cache
 C:\Users\edr\Desktop\inventory project\obj\Debug\inventory.Form1.resources
 C:\Users\edr\Desktop\inventory project\obj\Debug\inventory.Properties.Resources.resources
 C:\Users\edr\Desktop\inventory project\obj\Debug\inventory.csproj.GenerateResource.cache
